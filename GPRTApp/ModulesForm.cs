@@ -63,7 +63,23 @@ namespace GPRTApp
 
         private void level4Btn_Click(object sender, EventArgs e)
         {
+            var addModuleForm = new AddModuleForm("Level 4", this);
+            addModuleForm.Show();
+            this.Hide();
+        }
 
+        private void level5Btn_Click(object sender, EventArgs e)
+        {
+            var addModuleForm = new AddModuleForm("Level 5", this);
+            addModuleForm.Show();
+            this.Hide();
+        }
+
+        private void level6Btn_Click(object sender, EventArgs e)
+        {
+            var addModuleForm = new AddModuleForm("Level 6", this);
+            addModuleForm.Show();
+            this.Hide();
         }
     }
 }

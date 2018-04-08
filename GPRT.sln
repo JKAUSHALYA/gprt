@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPRTApp", "GPRTApp\GPRTApp.csproj", "{FC115C77-4A76-44F9-8740-4F80C27CA332}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPRTWeb", "GPRTWeb\GPRTWeb.csproj", "{CAD9CF61-6CBE-43C2-8BBB-40E16368651A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FC115C77-4A76-44F9-8740-4F80C27CA332}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC115C77-4A76-44F9-8740-4F80C27CA332}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC115C77-4A76-44F9-8740-4F80C27CA332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD9CF61-6CBE-43C2-8BBB-40E16368651A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD9CF61-6CBE-43C2-8BBB-40E16368651A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD9CF61-6CBE-43C2-8BBB-40E16368651A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD9CF61-6CBE-43C2-8BBB-40E16368651A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

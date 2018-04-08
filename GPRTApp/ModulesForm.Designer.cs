@@ -96,6 +96,7 @@
             this.level5Btn.TabIndex = 3;
             this.level5Btn.Text = "Level 5";
             this.level5Btn.UseVisualStyleBackColor = true;
+            this.level5Btn.Click += new System.EventHandler(this.level5Btn_Click);
             // 
             // level6Btn
             // 
@@ -105,6 +106,7 @@
             this.level6Btn.TabIndex = 2;
             this.level6Btn.Text = "Level 6";
             this.level6Btn.UseVisualStyleBackColor = true;
+            this.level6Btn.Click += new System.EventHandler(this.level6Btn_Click);
             // 
             // level4Btn
             // 
@@ -227,8 +229,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
@@ -240,8 +240,9 @@
         private System.Windows.Forms.Button level5Btn;
         private System.Windows.Forms.Button level6Btn;
         private System.Windows.Forms.Button level4Btn;
-        private System.Windows.Forms.DataGridView level6GridView;
-        private System.Windows.Forms.DataGridView level4GridView;
-        private System.Windows.Forms.DataGridView level5GridView;
+        internal System.Windows.Forms.DataGridView level4GridView;
+        internal System.Windows.Forms.TabControl tabControl1;
+        internal System.Windows.Forms.DataGridView level5GridView;
+        internal System.Windows.Forms.DataGridView level6GridView;
     }
 }

@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace GPRTWeb.Models
+namespace GPRTCommon
 {
     public class Module
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
         public string ModuleName { get; set; }
         public string PredictedMark { get; set; }
         public string ActualMark { get; set; }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GPRTCommon;
 
 namespace GPRTApp
 {
@@ -80,6 +81,49 @@ namespace GPRTApp
             var addModuleForm = new AddModuleForm("Level 6", this);
             addModuleForm.Show();
             this.Hide();
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            var level4Modules = GetModules(level4GridView);
+            var level5Modules = GetModules(level5GridView);
+            var level6Modules = GetModules(level6GridView);
+
+            var level4 = new Level("Level4");
+            level4.Modules = level4Modules;
+
+            var level5 = new Level("Level5");
+            level5.Modules = level5Modules;
+
+            var level6 = new Level("Level6");
+            level6.Modules = level6Modules;
+
+            var levels = new List<Level>();
+            levels.Add(level4);
+            levels.Add(level5);
+            levels.Add(level6);
+
+            var webHandler = new WebHandler();
+            webHandler.SaveLevels(levels);
+        }
+
+        private List<Module> GetModules(DataGridView dataGridView)
+        {
+            var modules = new List<Module>();
+            var table = ((DataSet)dataGridView.DataSource).Tables[0];
+            foreach (var row in table.Rows)
+            {
+                if (row is DataRow)
+                {
+                    var rowData = (DataRow)row;
+                    var module = new Module();
+                    module.ModuleName = (string)rowData.ItemArray[0];
+                    module.PredictedMark = (string)rowData.ItemArray[1];
+                    module.ActualMark = (string)rowData.ItemArray[2];
+                    modules.Add(module);
+                }
+            }
+            return modules;
         }
     }
 }

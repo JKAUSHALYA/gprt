@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FC115C77-4A76-44F9-8740-4F80C27CA332}</ProjectGuid>
+    <ProjectGuid>{A17B4EB1-0F4D-4C84-AA85-7CB0F60F9C04}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>GPRTApp</RootNamespace>
-    <AssemblyName>GPRTApp</AssemblyName>
+    <RootNamespace>GPRTAdminApp</RootNamespace>
+    <AssemblyName>GPRTAdminApp</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,14 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,35 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddModuleForm.cs">
+    <Compile Include="AdminView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddModuleForm.Designer.cs">
-      <DependentUpon>AddModuleForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ModulesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModulesForm.Designer.cs">
-      <DependentUpon>ModulesForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WelcomeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WelcomeForm.Designer.cs">
-      <DependentUpon>WelcomeForm.cs</DependentUpon>
+    <Compile Include="AdminView.Designer.cs">
+      <DependentUpon>AdminView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XMLHandler.cs" />
-    <EmbeddedResource Include="AddModuleForm.resx">
-      <DependentUpon>AddModuleForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModulesForm.resx">
-      <DependentUpon>ModulesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WelcomeForm.resx">
-      <DependentUpon>WelcomeForm.cs</DependentUpon>
+    <EmbeddedResource Include="AdminView.resx">
+      <DependentUpon>AdminView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -100,19 +74,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="schema.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GPRTCommon\GPRTCommon.csproj">
-      <Project>{b0435bbb-2253-43be-b1ef-49ccf1b35c30}</Project>
-      <Name>GPRTCommon</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

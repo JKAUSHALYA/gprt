@@ -28,5 +28,10 @@ namespace GPRTApp
             modulesForm.Show();
             this.Hide();
         }
+
+        private void WelcomeForm_Load(object sender, EventArgs e)
+        {
+            // Do nothing.
+        }
     }
 }

@@ -74,6 +74,7 @@
             this.Controls.Add(this.goBtn);
             this.Name = "WelcomeForm";
             this.Text = "Welcome";
+            this.Load += new System.EventHandler(this.WelcomeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

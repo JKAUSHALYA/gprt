@@ -46,6 +46,11 @@ namespace GPRTAdminApp
             var webHandler = new WebHandler();
             var levels = await webHandler.GetLevels();
 
+            if (levels == null)
+            {
+                return;
+            }
+
             var level4 = levels.SingleOrDefault(lvl => lvl.LevelName == "Level4");
             var level5 = levels.SingleOrDefault(lvl => lvl.LevelName == "Level5");
             var level6 = levels.SingleOrDefault(lvl => lvl.LevelName == "Level6");
@@ -59,10 +64,6 @@ namespace GPRTAdminApp
         {
             while (true)
             {
-                if (cancellationToken.IsCancellationRequested)
-                {
-                    break;
-                }
                 try
                 {
                     await Task.Delay(period, cancellationToken);

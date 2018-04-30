@@ -41,12 +41,12 @@ namespace GPRTWeb.Controllers
                             .Include(mdl => mdl.Level)
                             .Where(mdl =>
                                 mdl.Level.LevelName == level.LevelName &&
-                                    mdl.ModuleName == module.ModuleName)
+                                    mdl.Title == module.Title)
                             .FirstOrDefault();
                         if (dbModule != null)
                         {
-                            dbModule.ActualMark = module.ActualMark;
-                            dbModule.PredictedMark = module.PredictedMark;
+                            dbModule.Code = module.Code;
+                            dbModule.CreditValue = module.CreditValue;
                         }
                         else
                         {
@@ -54,6 +54,27 @@ namespace GPRTWeb.Controllers
                                 .SingleOrDefault(lvl => lvl.LevelName == level.LevelName)
                                 .Modules
                                 .Add(module);
+                        }
+                        foreach (var assesment in module.Assesments)
+                        {
+                            var dbAssesment = dbContext.Assesments
+                                .Include(ast => ast.Module)
+                                .Where(ast =>
+                                    ast.Module.Title == module.Title &&
+                                    ast.Name == assesment.Name)
+                                .FirstOrDefault();
+                            if (dbAssesment != null)
+                            {
+                                dbAssesment.PredictedMark = assesment.PredictedMark;
+                                dbAssesment.ActualMark = assesment.ActualMark;
+                            }
+                            else
+                            {
+                                dbContext.Modules
+                                    .SingleOrDefault(mdl => mdl.Title == module.Title)
+                                    .Assesments
+                                    .Add(assesment);
+                            }
                         }
                     }
                 }

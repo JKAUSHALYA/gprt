@@ -117,13 +117,53 @@ namespace GPRTApp
                 {
                     var rowData = (DataRow)row;
                     var module = new Module();
-                    module.ModuleName = (string)rowData.ItemArray[0];
-                    module.PredictedMark = (string)rowData.ItemArray[1];
-                    module.ActualMark = (string)rowData.ItemArray[2];
+                    module.Title = (string)rowData.ItemArray[0];
+                    module.Code = (string)rowData.ItemArray[1];
+                    module.CreditValue = (string)rowData.ItemArray[2];
                     modules.Add(module);
                 }
             }
             return modules;
+        }
+
+        private void level4GridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string levelName = "Level4";
+            string moduleName = level4GridView.Rows[e.RowIndex].Cells["Module-Name"].Value.ToString();
+            ViewAssesments(levelName, moduleName);
+        }
+
+        private void level5GridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string levelName = "Level5";
+            string moduleName = level4GridView.Rows[e.RowIndex].Cells["Module-Name"].Value.ToString();
+            ViewAssesments(levelName, moduleName);
+        }
+
+        private void level6GridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string levelName = "Level6";
+            string moduleName = level4GridView.Rows[e.RowIndex].Cells["Module-Name"].Value.ToString();
+            ViewAssesments(levelName, moduleName);
+        }
+
+        private void loadBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void summaryBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ViewAssesments(string levelName, string moduleName)
+        {
+            var xmlHandler = new XMLHandler();
+            var assesments = xmlHandler.ReadAssesments(levelName + "_" + moduleName + "_assesments.xml");
+
+            var assesmentsForm = new AssesmentForm(assesments, moduleName, levelName);
+            assesmentsForm.ShowDialog();
         }
     }
 }

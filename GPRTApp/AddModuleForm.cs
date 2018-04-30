@@ -22,19 +22,23 @@ namespace GPRTApp
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+            var addAssesmentForm = new AssesmentForm(levelComboBox.SelectedItem.ToString().Replace(" ", ""),
+                titleTextBox.Text, Convert.ToInt32(assesmentCountTextBox.Value));
+            addAssesmentForm.ShowDialog();
+
             switch (levelComboBox.SelectedItem.ToString())
             {
                 case "Level 4":
                     AddItemsToDataGrid(parent.level4GridView, 
-                        moduleNameTextBox.Text, predictedMarkTextBox.Text, actualMarkTextBox.Text);
+                        titleTextBox.Text, codeTextBox.Text, creditValueTextBox.Text);
                     break;
                 case "Level 5":
                     AddItemsToDataGrid(parent.level5GridView,
-                       moduleNameTextBox.Text, predictedMarkTextBox.Text, actualMarkTextBox.Text);
+                       titleTextBox.Text, codeTextBox.Text, creditValueTextBox.Text);
                     break;
                 case "Level 6":
                     AddItemsToDataGrid(parent.level6GridView,
-                       moduleNameTextBox.Text, predictedMarkTextBox.Text, actualMarkTextBox.Text);
+                       titleTextBox.Text, codeTextBox.Text, creditValueTextBox.Text);
                     break;
             }
             parent.Show();

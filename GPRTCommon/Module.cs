@@ -8,8 +8,9 @@ namespace GPRTCommon
 {
     public class Module
     {
-        public string ModuleName { get; set; }
-        public string PredictedMark { get; set; }
-        public string ActualMark { get; set; }
+        public string Title { get; set; }
+        public string Code { get; set; }
+        public string CreditValue { get; set; }
+        public List<Assesment> Assesments { get; set; }
     }
 }

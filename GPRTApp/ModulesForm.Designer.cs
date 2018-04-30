@@ -43,7 +43,7 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.summaryBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.loadBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -138,6 +138,7 @@
             this.level4GridView.Name = "level4GridView";
             this.level4GridView.Size = new System.Drawing.Size(675, 388);
             this.level4GridView.TabIndex = 2;
+            this.level4GridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.level4GridView_RowHeaderMouseDoubleClick);
             // 
             // tabPage3
             // 
@@ -156,6 +157,7 @@
             this.level5GridView.Name = "level5GridView";
             this.level5GridView.Size = new System.Drawing.Size(675, 388);
             this.level5GridView.TabIndex = 2;
+            this.level5GridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.level5GridView_RowHeaderMouseDoubleClick);
             // 
             // tabPage4
             // 
@@ -174,6 +176,7 @@
             this.level6GridView.Name = "level6GridView";
             this.level6GridView.Size = new System.Drawing.Size(675, 388);
             this.level6GridView.TabIndex = 1;
+            this.level6GridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.level6GridView_RowHeaderMouseDoubleClick);
             // 
             // backBtn
             // 
@@ -203,15 +206,17 @@
             this.summaryBtn.TabIndex = 2;
             this.summaryBtn.Text = "Summary";
             this.summaryBtn.UseVisualStyleBackColor = true;
+            this.summaryBtn.Click += new System.EventHandler(this.summaryBtn_Click);
             // 
-            // button1
+            // loadBtn
             // 
-            this.button1.Location = new System.Drawing.Point(713, 328);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Load";
-            this.button1.UseVisualStyleBackColor = true;
+            this.loadBtn.Location = new System.Drawing.Point(713, 328);
+            this.loadBtn.Name = "loadBtn";
+            this.loadBtn.Size = new System.Drawing.Size(75, 23);
+            this.loadBtn.TabIndex = 3;
+            this.loadBtn.Text = "Load";
+            this.loadBtn.UseVisualStyleBackColor = true;
+            this.loadBtn.Click += new System.EventHandler(this.loadBtn_Click);
             // 
             // saveBtn
             // 
@@ -229,7 +234,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.loadBtn);
             this.Controls.Add(this.summaryBtn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.tabControl1);
@@ -267,7 +272,7 @@
         internal System.Windows.Forms.TabControl tabControl1;
         internal System.Windows.Forms.DataGridView level5GridView;
         internal System.Windows.Forms.DataGridView level6GridView;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button loadBtn;
         private System.Windows.Forms.Button saveBtn;
     }
 }

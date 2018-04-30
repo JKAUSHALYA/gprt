@@ -1,10 +1,14 @@
-﻿using System;
+﻿using GPRTCommon;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace GPRTApp
 {
@@ -12,13 +16,35 @@ namespace GPRTApp
     {
         public void SaveToFile(Dictionary<string, DataSet> modules)
         {
-            foreach (var module in modules)
-            {
-                var dataSource = module.Value;
-                if (dataSource != null)
+            // Write to the file using seperate thread. 
+            Thread t = new Thread(new ThreadStart(() => {
+                foreach (var module in modules)
                 {
-                    dataSource.WriteXml(module.Key);
+                    var dataSource = module.Value;
+                    if (dataSource != null)
+                    {
+                        dataSource.WriteXml(module.Key);
+                    }
                 }
+            }));
+            t.Start();
+        }
+
+        public void SaveAssesments(string fileName, List<Assesment> assesment)
+        {
+            XmlSerializer xsSubmit = new XmlSerializer(typeof(List<Assesment>));
+            using (XmlWriter writer = XmlWriter.Create(fileName))
+            {
+                xsSubmit.Serialize(writer, assesment);
+            }
+        }
+
+        public List<Assesment> ReadAssesments(string fileName)
+        {
+            XmlSerializer xsSubmit = new XmlSerializer(typeof(List<Assesment>));
+            using (XmlReader reader = XmlReader.Create(fileName))
+            {
+                return (List<Assesment>) xsSubmit.Deserialize(reader);
             }
         }
 

@@ -29,15 +29,18 @@
         private void InitializeComponent()
         {
             this.levelComboBox = new System.Windows.Forms.ComboBox();
-            this.moduleNameTextBox = new System.Windows.Forms.TextBox();
-            this.predictedMarkTextBox = new System.Windows.Forms.TextBox();
-            this.actualMarkTextBox = new System.Windows.Forms.TextBox();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
+            this.creditValueTextBox = new System.Windows.Forms.TextBox();
             this.addBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.assesmentCountTextBox = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.assesmentCountTextBox)).BeginInit();
             this.SuspendLayout();
             // 
             // levelComboBox
@@ -52,30 +55,30 @@
             this.levelComboBox.Size = new System.Drawing.Size(121, 21);
             this.levelComboBox.TabIndex = 0;
             // 
-            // moduleNameTextBox
+            // titleTextBox
             // 
-            this.moduleNameTextBox.Location = new System.Drawing.Point(127, 39);
-            this.moduleNameTextBox.Name = "moduleNameTextBox";
-            this.moduleNameTextBox.Size = new System.Drawing.Size(121, 20);
-            this.moduleNameTextBox.TabIndex = 1;
+            this.titleTextBox.Location = new System.Drawing.Point(127, 39);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(121, 20);
+            this.titleTextBox.TabIndex = 1;
             // 
-            // predictedMarkTextBox
+            // codeTextBox
             // 
-            this.predictedMarkTextBox.Location = new System.Drawing.Point(127, 65);
-            this.predictedMarkTextBox.Name = "predictedMarkTextBox";
-            this.predictedMarkTextBox.Size = new System.Drawing.Size(121, 20);
-            this.predictedMarkTextBox.TabIndex = 2;
+            this.codeTextBox.Location = new System.Drawing.Point(127, 65);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(121, 20);
+            this.codeTextBox.TabIndex = 2;
             // 
-            // actualMarkTextBox
+            // creditValueTextBox
             // 
-            this.actualMarkTextBox.Location = new System.Drawing.Point(127, 91);
-            this.actualMarkTextBox.Name = "actualMarkTextBox";
-            this.actualMarkTextBox.Size = new System.Drawing.Size(121, 20);
-            this.actualMarkTextBox.TabIndex = 3;
+            this.creditValueTextBox.Location = new System.Drawing.Point(127, 91);
+            this.creditValueTextBox.Name = "creditValueTextBox";
+            this.creditValueTextBox.Size = new System.Drawing.Size(121, 20);
+            this.creditValueTextBox.TabIndex = 3;
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(47, 138);
+            this.addBtn.Location = new System.Drawing.Point(48, 152);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
             this.addBtn.TabIndex = 4;
@@ -85,7 +88,7 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(139, 138);
+            this.cancelBtn.Location = new System.Drawing.Point(140, 152);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);
             this.cancelBtn.TabIndex = 5;
@@ -107,18 +110,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Module Name";
+            this.label2.Text = "Title";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
+            this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Predicted Mark";
+            this.label3.Text = "Code";
             // 
             // label4
             // 
@@ -127,25 +130,44 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Actual Mark";
+            this.label4.Text = "Credit Value";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 119);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Assesment Count";
+            // 
+            // assesmentCountTextBox
+            // 
+            this.assesmentCountTextBox.Location = new System.Drawing.Point(127, 117);
+            this.assesmentCountTextBox.Name = "assesmentCountTextBox";
+            this.assesmentCountTextBox.Size = new System.Drawing.Size(121, 20);
+            this.assesmentCountTextBox.TabIndex = 11;
             // 
             // AddModuleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 182);
+            this.ClientSize = new System.Drawing.Size(277, 186);
+            this.Controls.Add(this.assesmentCountTextBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.addBtn);
-            this.Controls.Add(this.actualMarkTextBox);
-            this.Controls.Add(this.predictedMarkTextBox);
-            this.Controls.Add(this.moduleNameTextBox);
+            this.Controls.Add(this.creditValueTextBox);
+            this.Controls.Add(this.codeTextBox);
+            this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.levelComboBox);
             this.Name = "AddModuleForm";
             this.Text = "Add Module";
+            ((System.ComponentModel.ISupportInitialize)(this.assesmentCountTextBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,14 +176,16 @@
         #endregion
 
         private System.Windows.Forms.ComboBox levelComboBox;
-        private System.Windows.Forms.TextBox moduleNameTextBox;
-        private System.Windows.Forms.TextBox predictedMarkTextBox;
-        private System.Windows.Forms.TextBox actualMarkTextBox;
+        private System.Windows.Forms.TextBox titleTextBox;
+        private System.Windows.Forms.TextBox codeTextBox;
+        private System.Windows.Forms.TextBox creditValueTextBox;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown assesmentCountTextBox;
     }
 }

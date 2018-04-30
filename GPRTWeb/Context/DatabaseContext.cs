@@ -13,5 +13,6 @@ namespace GPRTWeb.Context
 
         public DbSet<Level> Levels { get; set; }
         public DbSet<Module> Modules { get; set; }
+        public DbSet<Assesment> Assesments { get; set; }
     }
 }

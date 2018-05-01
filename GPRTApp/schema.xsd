@@ -5,9 +5,9 @@
         <xs:element name="module" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:string" name="Module-Name"/>
-              <xs:element type="xs:string" name="Actual-Mark"/>
-              <xs:element type="xs:string" name="Predicted-Mark"/>
+              <xs:element type="xs:string" name="Title"/>
+              <xs:element type="xs:string" name="Code"/>
+              <xs:element type="xs:string" name="Credit-Value"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

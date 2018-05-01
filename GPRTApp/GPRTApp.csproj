@@ -70,11 +70,11 @@
     <Compile Include="ModulesForm.Designer.cs">
       <DependentUpon>ModulesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SummeryView.cs">
+    <Compile Include="SummeryViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SummeryView.Designer.cs">
-      <DependentUpon>SummeryView.cs</DependentUpon>
+    <Compile Include="SummeryViewForm.Designer.cs">
+      <DependentUpon>SummeryViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WelcomeForm.cs">
       <SubType>Form</SubType>
@@ -94,8 +94,8 @@
     <EmbeddedResource Include="ModulesForm.resx">
       <DependentUpon>ModulesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SummeryView.resx">
-      <DependentUpon>SummeryView.cs</DependentUpon>
+    <EmbeddedResource Include="SummeryViewForm.resx">
+      <DependentUpon>SummeryViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>

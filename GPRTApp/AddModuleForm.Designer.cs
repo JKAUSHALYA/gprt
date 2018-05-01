@@ -47,9 +47,9 @@
             // 
             this.levelComboBox.FormattingEnabled = true;
             this.levelComboBox.Items.AddRange(new object[] {
-            "Level 4",
-            "Level 5",
-            "Level 6"});
+            "Level4",
+            "Level5",
+            "Level6"});
             this.levelComboBox.Location = new System.Drawing.Point(127, 12);
             this.levelComboBox.Name = "levelComboBox";
             this.levelComboBox.Size = new System.Drawing.Size(121, 21);

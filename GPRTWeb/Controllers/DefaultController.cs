@@ -20,7 +20,13 @@ namespace GPRTWeb.Controllers
         {
             var result = db.Levels
                 .Include(lvl => lvl.Modules)
-                .Select(lvl => new { lvl.LevelName, lvl.Modules });
+                .Include("Modules.Assesments")
+                .Select(lvl => new
+                {
+                    lvl.LevelName,
+                    Modules = lvl.Modules
+                    .Select(mdl => new { mdl.Title, mdl.Code, mdl.CreditValue, mdl.Assesments})
+                });
             return Ok(result);
         }
 

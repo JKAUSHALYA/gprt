@@ -64,30 +64,37 @@ namespace GPRTApp
 
         private void level4Btn_Click(object sender, EventArgs e)
         {
-            var addModuleForm = new AddModuleForm("Level 4", this);
+            var addModuleForm = new AddModuleForm("Level4", this);
             addModuleForm.Show();
             this.Hide();
         }
 
         private void level5Btn_Click(object sender, EventArgs e)
         {
-            var addModuleForm = new AddModuleForm("Level 5", this);
+            var addModuleForm = new AddModuleForm("Level5", this);
             addModuleForm.Show();
             this.Hide();
         }
 
         private void level6Btn_Click(object sender, EventArgs e)
         {
-            var addModuleForm = new AddModuleForm("Level 6", this);
+            var addModuleForm = new AddModuleForm("Level6", this);
             addModuleForm.Show();
             this.Hide();
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            var level4Modules = GetModules(level4GridView);
-            var level5Modules = GetModules(level5GridView);
-            var level6Modules = GetModules(level6GridView);
+            var levels = GetAllLevels();
+            var webHandler = new WebHandler();
+            webHandler.SaveLevels(levels);
+        }
+
+        private List<Level> GetAllLevels()
+        {
+            var level4Modules = GetModules(level4GridView, "Level4");
+            var level5Modules = GetModules(level5GridView, "Level5");
+            var level6Modules = GetModules(level6GridView, "Level6");
 
             var level4 = new Level("Level4");
             level4.Modules = level4Modules;
@@ -103,11 +110,10 @@ namespace GPRTApp
             levels.Add(level5);
             levels.Add(level6);
 
-            var webHandler = new WebHandler();
-            webHandler.SaveLevels(levels);
+            return levels;
         }
 
-        private List<Module> GetModules(DataGridView dataGridView)
+        private List<Module> GetModules(DataGridView dataGridView, string levelName)
         {
             var modules = new List<Module>();
             var table = ((DataSet)dataGridView.DataSource).Tables[0];
@@ -120,6 +126,8 @@ namespace GPRTApp
                     module.Title = (string)rowData.ItemArray[0];
                     module.Code = (string)rowData.ItemArray[1];
                     module.CreditValue = (string)rowData.ItemArray[2];
+                    module.Assesments = xmlHandler.ReadAssesments(levelName + "_" + module.Title 
+                        + "_assesments.xml");
                     modules.Add(module);
                 }
             }
@@ -129,21 +137,21 @@ namespace GPRTApp
         private void level4GridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             string levelName = "Level4";
-            string moduleName = level4GridView.Rows[e.RowIndex].Cells["Module-Name"].Value.ToString();
+            string moduleName = level4GridView.Rows[e.RowIndex].Cells["Title"].Value.ToString();
             ViewAssesments(levelName, moduleName);
         }
 
         private void level5GridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             string levelName = "Level5";
-            string moduleName = level4GridView.Rows[e.RowIndex].Cells["Module-Name"].Value.ToString();
+            string moduleName = level5GridView.Rows[e.RowIndex].Cells["Title"].Value.ToString();
             ViewAssesments(levelName, moduleName);
         }
 
         private void level6GridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             string levelName = "Level6";
-            string moduleName = level4GridView.Rows[e.RowIndex].Cells["Module-Name"].Value.ToString();
+            string moduleName = level6GridView.Rows[e.RowIndex].Cells["Title"].Value.ToString();
             ViewAssesments(levelName, moduleName);
         }
 
@@ -154,7 +162,9 @@ namespace GPRTApp
 
         private void summaryBtn_Click(object sender, EventArgs e)
         {
-
+            var levels = GetAllLevels();
+            var summeryForm = new SummeryViewForm(levels);
+            summeryForm.ShowDialog();
         }
 
         private void ViewAssesments(string levelName, string moduleName)

@@ -57,25 +57,70 @@ namespace GPRTApp
                 dataGridView1.Rows[2].DefaultCellStyle.BackColor = Color.Red;
             }
 
+            var level5Lowest = level5Result.ModuleResults.OrderBy(mr => mr.Mark).ToList()[0];
+            var level6Lowest = level6Result.ModuleResults.OrderBy(mr => mr.Mark).ToList()[0];
+
+            if (level5Lowest.Mark == level6Lowest.Mark)
+            {
+                if (level6Lowest.Credits == 40)
+                {
+                    level6Lowest.Credits = 20;
+                } else
+                {
+                    level6Result.ModuleResults.Remove(level6Lowest);
+                }
+            } else
+            {
+                if (level5Lowest.Mark < level6Lowest.Mark)
+                {
+                    if (level5Lowest.Credits == 40)
+                    {
+                        level5Lowest.Credits = 20;
+                    }
+                    else
+                    {
+                        level5Result.ModuleResults.Remove(level5Lowest);
+                    }
+                } else
+                {
+                    if (level6Lowest.Credits == 40)
+                    {
+                        level6Lowest.Credits = 20;
+                    }
+                    else
+                    {
+                        level6Result.ModuleResults.Remove(level6Lowest);
+                    }
+                }
+            }
+
             var level5Grade = (level5Result.ModuleResults
-                .OrderBy(mr => mr.Mark)
-                .Take(level5Result.ModuleResults.Count - 1)
                 .Sum(mr => mr.Mark * mr.Credits)
                 / level5Result.ModuleResults.Sum(mr => mr.Credits))
-                * (1/3);
+                * (decimal)(1.0/3.0);
 
             var level6Grade = (level6Result.ModuleResults
-                .OrderBy(mr => mr.Mark)
-                .Take(level6Result.ModuleResults.Count - 1)
                 .Sum(mr => mr.Mark * mr.Credits)
                 / level6Result.ModuleResults.Sum(mr => mr.Credits))
-                * (2/3);
+                * (decimal)(2.0/3.0);
 
             var finalGrade = level5Grade + level6Grade;
-
-            if (finalGrade > 220)
+            
+            if (finalGrade >= 70)
             {
-                finalResultLbl.Text = "PASS";
+                finalResultLbl.Text = "First Class Honurs";
+                finalResultLbl.ForeColor = Color.Green;
+            } else if (finalGrade > 60)
+            {
+                finalResultLbl.Text = "Second Class Honurs Upper Division";
+                finalResultLbl.ForeColor = Color.Green;
+            } else if (finalGrade > 50)
+            {
+                finalResultLbl.Text = "Second Class Lower Division";
+                finalResultLbl.ForeColor = Color.Green;
+            } else if (finalGrade > 40)
+            {
+                finalResultLbl.Text = "Third Class Honurs";
                 finalResultLbl.ForeColor = Color.Green;
             } else
             {
@@ -139,7 +184,7 @@ namespace GPRTApp
         {
             var assesmentResult = new AssesmentResult();
 
-            if (Convert.ToInt32(assesment.ActualMark) > 40)
+            if (Convert.ToInt32(assesment.ActualMark) > 30)
             {
                 assesmentResult.ResultStatus = GPRTCommon.Result.Status.PASS;
             } else

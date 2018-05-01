@@ -172,7 +172,7 @@ namespace GPRTApp
             var xmlHandler = new XMLHandler();
             var assesments = xmlHandler.ReadAssesments(levelName + "_" + moduleName + "_assesments.xml");
 
-            var assesmentsForm = new AssesmentForm(assesments, moduleName, levelName);
+            var assesmentsForm = new AssesmentForm(assesments, levelName, moduleName);
             assesmentsForm.ShowDialog();
         }
     }

@@ -35,6 +35,9 @@ namespace GPRTApp
 
         public AssesmentForm(List<Assesment> assesments, string levelName, string moduleName)
         {
+            this.levelName = levelName;
+            this.moduleName = moduleName;
+
             InitializeComponent();
             var bindingSource = new BindingSource();
             foreach (var assesment in assesments)

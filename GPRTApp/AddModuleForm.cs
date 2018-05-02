@@ -30,15 +30,15 @@ namespace GPRTApp
             {
                 case "Level4":
                     AddItemsToDataGrid(parent.level4GridView, 
-                        titleTextBox.Text, codeTextBox.Text, creditValueTextBox.Text);
+                        titleTextBox.Text, codeTextBox.Text, creditValueCMBBox.SelectedText);
                     break;
                 case "Level5":
                     AddItemsToDataGrid(parent.level5GridView,
-                       titleTextBox.Text, codeTextBox.Text, creditValueTextBox.Text);
+                       titleTextBox.Text, codeTextBox.Text, creditValueCMBBox.SelectedText);
                     break;
                 case "Level6":
                     AddItemsToDataGrid(parent.level6GridView,
-                       titleTextBox.Text, codeTextBox.Text, creditValueTextBox.Text);
+                       titleTextBox.Text, codeTextBox.Text, creditValueCMBBox.SelectedText);
                     break;
             }
             parent.Show();

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.finalResultLbl = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
             this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCredits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.finalResultLbl = new System.Windows.Forms.Label();
+            this.backBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,36 +49,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(501, 195);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 244);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Final Result";
-            // 
-            // finalResultLbl
-            // 
-            this.finalResultLbl.AutoSize = true;
-            this.finalResultLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finalResultLbl.Location = new System.Drawing.Point(90, 237);
-            this.finalResultLbl.Name = "finalResultLbl";
-            this.finalResultLbl.Size = new System.Drawing.Size(55, 20);
-            this.finalResultLbl.TabIndex = 2;
-            this.finalResultLbl.Text = "Result";
-            this.finalResultLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // backBtn
-            // 
-            this.backBtn.Location = new System.Drawing.Point(207, 282);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(75, 23);
-            this.backBtn.TabIndex = 3;
-            this.backBtn.Text = "Back";
-            this.backBtn.UseVisualStyleBackColor = true;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // Level
             // 
@@ -100,6 +70,37 @@
             this.Result.HeaderText = "Result";
             this.Result.Name = "Result";
             this.Result.ReadOnly = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 244);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Final Result";
+            // 
+            // finalResultLbl
+            // 
+            this.finalResultLbl.AutoSize = true;
+            this.finalResultLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.finalResultLbl.ForeColor = System.Drawing.Color.Red;
+            this.finalResultLbl.Location = new System.Drawing.Point(90, 237);
+            this.finalResultLbl.Name = "finalResultLbl";
+            this.finalResultLbl.Size = new System.Drawing.Size(34, 20);
+            this.finalResultLbl.TabIndex = 2;
+            this.finalResultLbl.Text = "Fail";
+            this.finalResultLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // backBtn
+            // 
+            this.backBtn.Location = new System.Drawing.Point(207, 282);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(75, 23);
+            this.backBtn.TabIndex = 3;
+            this.backBtn.Text = "Back";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // SummeryViewForm
             // 

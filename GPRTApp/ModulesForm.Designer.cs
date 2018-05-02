@@ -133,12 +133,15 @@
             // 
             // level4GridView
             // 
+            this.level4GridView.AllowUserToAddRows = false;
             this.level4GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.level4GridView.Location = new System.Drawing.Point(6, 6);
+            this.level4GridView.MultiSelect = false;
             this.level4GridView.Name = "level4GridView";
             this.level4GridView.Size = new System.Drawing.Size(675, 388);
             this.level4GridView.TabIndex = 2;
             this.level4GridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.level4GridView_RowHeaderMouseDoubleClick);
+            this.level4GridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.level4GridView_RowsRemoved);
             // 
             // tabPage3
             // 
@@ -152,12 +155,14 @@
             // 
             // level5GridView
             // 
+            this.level5GridView.AllowUserToAddRows = false;
             this.level5GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.level5GridView.Location = new System.Drawing.Point(6, 6);
             this.level5GridView.Name = "level5GridView";
             this.level5GridView.Size = new System.Drawing.Size(675, 388);
             this.level5GridView.TabIndex = 2;
             this.level5GridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.level5GridView_RowHeaderMouseDoubleClick);
+            this.level5GridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.level5GridView_RowsRemoved);
             // 
             // tabPage4
             // 
@@ -171,12 +176,14 @@
             // 
             // level6GridView
             // 
+            this.level6GridView.AllowUserToAddRows = false;
             this.level6GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.level6GridView.Location = new System.Drawing.Point(6, 6);
             this.level6GridView.Name = "level6GridView";
             this.level6GridView.Size = new System.Drawing.Size(675, 388);
             this.level6GridView.TabIndex = 1;
             this.level6GridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.level6GridView_RowHeaderMouseDoubleClick);
+            this.level6GridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.level6GridView_RowsRemoved);
             // 
             // backBtn
             // 

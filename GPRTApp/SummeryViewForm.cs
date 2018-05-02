@@ -30,6 +30,8 @@ namespace GPRTApp
             dataGridView1.Rows.Add(level5Result.Level.LevelName, level5Result.TotalCredits, level5Result.ResultStatus);
             dataGridView1.Rows.Add(level6Result.Level.LevelName, level6Result.TotalCredits, level6Result.ResultStatus);
 
+            bool everyLevelPassed = true;
+
             if (level4Result.ResultStatus == GPRTCommon.Result.Status.PASS)
             {
                 dataGridView1.Rows[0].DefaultCellStyle.BackColor = Color.Green;
@@ -37,6 +39,7 @@ namespace GPRTApp
             else
             {
                 dataGridView1.Rows[0].DefaultCellStyle.BackColor = Color.Red;
+                everyLevelPassed = false;
             }
 
             if (level5Result.ResultStatus == GPRTCommon.Result.Status.PASS)
@@ -46,6 +49,7 @@ namespace GPRTApp
             else
             {
                 dataGridView1.Rows[1].DefaultCellStyle.BackColor = Color.Red;
+                everyLevelPassed = false;
             }
 
             if (level6Result.ResultStatus == GPRTCommon.Result.Status.PASS)
@@ -55,6 +59,7 @@ namespace GPRTApp
             else
             {
                 dataGridView1.Rows[2].DefaultCellStyle.BackColor = Color.Red;
+                everyLevelPassed = false;
             }
 
             var level5Lowest = level5Result.ModuleResults.OrderBy(mr => mr.Mark).ToList()[0];
@@ -106,19 +111,19 @@ namespace GPRTApp
 
             var finalGrade = level5Grade + level6Grade;
             
-            if (finalGrade >= 70)
+            if (finalGrade >= 70 && everyLevelPassed)
             {
                 finalResultLbl.Text = "First Class Honurs";
                 finalResultLbl.ForeColor = Color.Green;
-            } else if (finalGrade > 60)
+            } else if (finalGrade > 60 && everyLevelPassed)
             {
                 finalResultLbl.Text = "Second Class Honurs Upper Division";
                 finalResultLbl.ForeColor = Color.Green;
-            } else if (finalGrade > 50)
+            } else if (finalGrade > 50 && everyLevelPassed)
             {
                 finalResultLbl.Text = "Second Class Lower Division";
                 finalResultLbl.ForeColor = Color.Green;
-            } else if (finalGrade > 40)
+            } else if (finalGrade > 40 && everyLevelPassed)
             {
                 finalResultLbl.Text = "Third Class Honurs";
                 finalResultLbl.ForeColor = Color.Green;

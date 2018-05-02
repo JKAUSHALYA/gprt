@@ -51,15 +51,12 @@ namespace GPRTApp
 
             level4GridView.DataSource = moduleList["level4.xml"];
             level4GridView.DataMember = "module";
-            level4GridView.ReadOnly = true;
 
             level5GridView.DataSource = moduleList["level5.xml"];
             level5GridView.DataMember = "module";
-            level5GridView.ReadOnly = true;
 
             level6GridView.DataSource = moduleList["level6.xml"];
             level6GridView.DataMember = "module";
-            level6GridView.ReadOnly = true;
         }
 
         private void level4Btn_Click(object sender, EventArgs e)
@@ -138,6 +135,10 @@ namespace GPRTApp
         {
             string levelName = "Level4";
             string moduleName = level4GridView.Rows[e.RowIndex].Cells["Title"].Value.ToString();
+            if (moduleName == null || moduleName.Equals(""))
+            {
+                return;
+            }
             ViewAssesments(levelName, moduleName);
         }
 
@@ -145,6 +146,10 @@ namespace GPRTApp
         {
             string levelName = "Level5";
             string moduleName = level5GridView.Rows[e.RowIndex].Cells["Title"].Value.ToString();
+            if (moduleName == null || moduleName.Equals(""))
+            {
+                return;
+            }
             ViewAssesments(levelName, moduleName);
         }
 
@@ -152,6 +157,10 @@ namespace GPRTApp
         {
             string levelName = "Level6";
             string moduleName = level6GridView.Rows[e.RowIndex].Cells["Title"].Value.ToString();
+            if (moduleName == null || moduleName.Equals(""))
+            {
+                return;
+            }
             ViewAssesments(levelName, moduleName);
         }
 
@@ -174,6 +183,26 @@ namespace GPRTApp
 
             var assesmentsForm = new AssesmentForm(assesments, levelName, moduleName);
             assesmentsForm.ShowDialog();
+        }
+
+        private void level4GridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            var levelName = "Level4";
+        }
+
+        private void level5GridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            var levelName = "Level5";
+        }
+
+        private void level6GridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            var levelName = "Level6";
+        }
+
+        private void DeleteModule(string levelName, Module module)
+        {
+
         }
     }
 }

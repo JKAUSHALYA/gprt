@@ -47,7 +47,7 @@ namespace GPRTWeb.Controllers
                             .Include(mdl => mdl.Level)
                             .Where(mdl =>
                                 mdl.Level.LevelName == level.LevelName &&
-                                    mdl.Title == module.Title)
+                                    mdl.Title.Equals(module.Title))
                             .FirstOrDefault();
                         if (dbModule != null)
                         {
@@ -57,9 +57,11 @@ namespace GPRTWeb.Controllers
                         else
                         {
                             dbContext.Levels
+                                .Include(lvl => lvl.Modules)
                                 .SingleOrDefault(lvl => lvl.LevelName == level.LevelName)
                                 .Modules
                                 .Add(module);
+                            dbContext.SaveChanges();
                         }
                         foreach (var assesment in module.Assesments)
                         {
@@ -77,9 +79,11 @@ namespace GPRTWeb.Controllers
                             else
                             {
                                 dbContext.Modules
+                                    .Include(mdl => mdl.Assesments)
                                     .SingleOrDefault(mdl => mdl.Title == module.Title)
                                     .Assesments
                                     .Add(assesment);
+                                dbContext.SaveChanges();
                             }
                         }
                     }

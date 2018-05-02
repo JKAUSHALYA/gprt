@@ -31,7 +31,6 @@
             this.levelComboBox = new System.Windows.Forms.ComboBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.codeTextBox = new System.Windows.Forms.TextBox();
-            this.creditValueTextBox = new System.Windows.Forms.TextBox();
             this.addBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,6 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.assesmentCountTextBox = new System.Windows.Forms.NumericUpDown();
+            this.creditValueCMBBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.assesmentCountTextBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,13 +68,6 @@
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Size = new System.Drawing.Size(121, 20);
             this.codeTextBox.TabIndex = 2;
-            // 
-            // creditValueTextBox
-            // 
-            this.creditValueTextBox.Location = new System.Drawing.Point(127, 91);
-            this.creditValueTextBox.Name = "creditValueTextBox";
-            this.creditValueTextBox.Size = new System.Drawing.Size(121, 20);
-            this.creditValueTextBox.TabIndex = 3;
             // 
             // addBtn
             // 
@@ -148,11 +141,23 @@
             this.assesmentCountTextBox.Size = new System.Drawing.Size(121, 20);
             this.assesmentCountTextBox.TabIndex = 11;
             // 
+            // creditValueCMBBox
+            // 
+            this.creditValueCMBBox.FormattingEnabled = true;
+            this.creditValueCMBBox.Items.AddRange(new object[] {
+            "20",
+            "40"});
+            this.creditValueCMBBox.Location = new System.Drawing.Point(127, 86);
+            this.creditValueCMBBox.Name = "creditValueCMBBox";
+            this.creditValueCMBBox.Size = new System.Drawing.Size(121, 21);
+            this.creditValueCMBBox.TabIndex = 12;
+            // 
             // AddModuleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(277, 186);
+            this.Controls.Add(this.creditValueCMBBox);
             this.Controls.Add(this.assesmentCountTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -161,7 +166,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.addBtn);
-            this.Controls.Add(this.creditValueTextBox);
             this.Controls.Add(this.codeTextBox);
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.levelComboBox);
@@ -178,7 +182,6 @@
         private System.Windows.Forms.ComboBox levelComboBox;
         private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.TextBox codeTextBox;
-        private System.Windows.Forms.TextBox creditValueTextBox;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Label label1;
@@ -187,5 +190,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown assesmentCountTextBox;
+        private System.Windows.Forms.ComboBox creditValueCMBBox;
     }
 }

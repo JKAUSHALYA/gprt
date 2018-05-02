@@ -23,6 +23,15 @@ namespace GPRTCommon
             return levels;
         }
 
+        public async void RemoveModule(string levelName, string moduleTitle)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(levelName + ":" + moduleTitle);
+            var payload = System.Convert.ToBase64String(plainTextBytes);
+
+            string path = "http://localhost:49832/api/default/" + payload;
+            HttpResponseMessage response = await client.DeleteAsync(path);
+        }
+
         public async Task<Uri> SaveLevels(List<Level> levels)
         {
             const string path = "http://localhost:49832/api/default";

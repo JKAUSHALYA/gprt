@@ -141,7 +141,7 @@
             this.level4GridView.Size = new System.Drawing.Size(675, 388);
             this.level4GridView.TabIndex = 2;
             this.level4GridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.level4GridView_RowHeaderMouseDoubleClick);
-            this.level4GridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.level4GridView_RowsRemoved);
+            this.level4GridView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.level4GridView_UserDeletingRow);
             // 
             // tabPage3
             // 
@@ -162,7 +162,7 @@
             this.level5GridView.Size = new System.Drawing.Size(675, 388);
             this.level5GridView.TabIndex = 2;
             this.level5GridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.level5GridView_RowHeaderMouseDoubleClick);
-            this.level5GridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.level5GridView_RowsRemoved);
+            this.level5GridView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.level5GridView_UserDeletingRow);
             // 
             // tabPage4
             // 
@@ -183,7 +183,7 @@
             this.level6GridView.Size = new System.Drawing.Size(675, 388);
             this.level6GridView.TabIndex = 1;
             this.level6GridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.level6GridView_RowHeaderMouseDoubleClick);
-            this.level6GridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.level6GridView_RowsRemoved);
+            this.level6GridView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.level6GridView_UserDeletingRow);
             // 
             // backBtn
             // 

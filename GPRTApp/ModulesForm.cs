@@ -217,24 +217,31 @@ namespace GPRTApp
             assesmentsForm.ShowDialog();
         }
 
-        private void level4GridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        private void DeleteModule(string levelName, string moduleTitle)
+        {
+            var webHandler = new WebHandler();
+            webHandler.RemoveModule(levelName, moduleTitle);
+        }
+
+        private void level4GridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             var levelName = "Level4";
+            var moduleTitle = (string) e.Row.Cells["Title"].Value;
+            DeleteModule(levelName, moduleTitle);
         }
 
-        private void level5GridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        private void level5GridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             var levelName = "Level5";
+            var moduleTitle = (string)e.Row.Cells["Title"].Value;
+            DeleteModule(levelName, moduleTitle);
         }
 
-        private void level6GridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        private void level6GridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             var levelName = "Level6";
-        }
-
-        private void DeleteModule(string levelName, Module module)
-        {
-
+            var moduleTitle = (string)e.Row.Cells["Title"].Value;
+            DeleteModule(levelName, moduleTitle);
         }
     }
 }

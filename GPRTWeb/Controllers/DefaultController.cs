@@ -30,6 +30,29 @@ namespace GPRTWeb.Controllers
             return Ok(result);
         }
 
+        [HttpDelete]
+        public IHttpActionResult Delete(string id)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(id);
+            var value = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+            
+            var levelName = value.Split(':')[0];
+            var moduleName = value.Split(':')[1];
+            
+            var module = db.Modules
+                .Include(mdl => mdl.Assesments)
+                .Include(mdl => mdl.Level)
+                .Where(mdl => mdl.Title == moduleName && mdl.Level.LevelName == levelName)
+                .SingleOrDefault();
+
+            db.Assesments.RemoveRange(module.Assesments);
+            db.Modules.Remove(module);
+
+            db.SaveChanges();
+
+            return Ok();
+        }
+
         [HttpPost]
         public IHttpActionResult Post([FromBody] List<Level> levels)
         {

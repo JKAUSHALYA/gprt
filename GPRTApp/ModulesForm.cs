@@ -164,9 +164,41 @@ namespace GPRTApp
             ViewAssesments(levelName, moduleName);
         }
 
-        private void loadBtn_Click(object sender, EventArgs e)
+        private async void loadBtn_Click(object sender, EventArgs e)
         {
+            var webHandler = new WebHandler();
+            var levels = await webHandler.GetLevels();
 
+            if (levels == null)
+            {
+                return;
+            }
+
+            var level4 = levels.SingleOrDefault(lvl => lvl.LevelName == "Level4");
+            var level5 = levels.SingleOrDefault(lvl => lvl.LevelName == "Level5");
+            var level6 = levels.SingleOrDefault(lvl => lvl.LevelName == "Level6");
+
+            LoadDataGridView(level4GridView, level4);
+            LoadDataGridView(level5GridView, level5);
+            LoadDataGridView(level6GridView, level6);
+        }
+
+        private void LoadDataGridView(DataGridView dataGridView, Level level)
+        {
+            if (level == null)
+            {
+                return;
+            }
+            var table = ((DataSet)dataGridView.DataSource).Tables[0];
+            table.Clear();
+            var xmlHandler = new XMLHandler();
+            foreach (var module in level.Modules)
+            {
+                table.Rows.Add(module.Title, module.Code, module.CreditValue);
+                xmlHandler.SaveAssesments(level.LevelName + "_" + module.Title + "_assesments.xml",
+                    module.Assesments);
+            }
+            dataGridView.Refresh();
         }
 
         private void summaryBtn_Click(object sender, EventArgs e)

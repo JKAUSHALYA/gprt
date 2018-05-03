@@ -30,13 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.assesmentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.backBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.assesmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.predictedMarkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actualMarkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assesmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.backBtn = new System.Windows.Forms.Button();
-            this.saveBtn = new System.Windows.Forms.Button();
+            this.wheightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assesmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assesmentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,34 +51,17 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.predictedMarkDataGridViewTextBoxColumn,
-            this.actualMarkDataGridViewTextBoxColumn});
+            this.actualMarkDataGridViewTextBoxColumn,
+            this.wheightDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.assesmentBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(776, 392);
             this.dataGridView1.TabIndex = 0;
             // 
-            // nameDataGridViewTextBoxColumn
+            // assesmentBindingSource1
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // predictedMarkDataGridViewTextBoxColumn
-            // 
-            this.predictedMarkDataGridViewTextBoxColumn.DataPropertyName = "PredictedMark";
-            this.predictedMarkDataGridViewTextBoxColumn.HeaderText = "PredictedMark";
-            this.predictedMarkDataGridViewTextBoxColumn.Name = "predictedMarkDataGridViewTextBoxColumn";
-            // 
-            // actualMarkDataGridViewTextBoxColumn
-            // 
-            this.actualMarkDataGridViewTextBoxColumn.DataPropertyName = "ActualMark";
-            this.actualMarkDataGridViewTextBoxColumn.HeaderText = "ActualMark";
-            this.actualMarkDataGridViewTextBoxColumn.Name = "actualMarkDataGridViewTextBoxColumn";
-            // 
-            // assesmentBindingSource
-            // 
-            this.assesmentBindingSource.DataSource = typeof(GPRTCommon.Assesment);
+            this.assesmentBindingSource1.DataSource = typeof(GPRTCommon.Assesment);
             // 
             // backBtn
             // 
@@ -97,6 +83,34 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
+            // assesmentBindingSource
+            // 
+            this.assesmentBindingSource.DataSource = typeof(GPRTCommon.Assesment);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // predictedMarkDataGridViewTextBoxColumn
+            // 
+            this.predictedMarkDataGridViewTextBoxColumn.DataPropertyName = "PredictedMark";
+            this.predictedMarkDataGridViewTextBoxColumn.HeaderText = "PredictedMark";
+            this.predictedMarkDataGridViewTextBoxColumn.Name = "predictedMarkDataGridViewTextBoxColumn";
+            // 
+            // actualMarkDataGridViewTextBoxColumn
+            // 
+            this.actualMarkDataGridViewTextBoxColumn.DataPropertyName = "ActualMark";
+            this.actualMarkDataGridViewTextBoxColumn.HeaderText = "ActualMark";
+            this.actualMarkDataGridViewTextBoxColumn.Name = "actualMarkDataGridViewTextBoxColumn";
+            // 
+            // wheightDataGridViewTextBoxColumn
+            // 
+            this.wheightDataGridViewTextBoxColumn.DataPropertyName = "Wheight";
+            this.wheightDataGridViewTextBoxColumn.HeaderText = "Wheight";
+            this.wheightDataGridViewTextBoxColumn.Name = "wheightDataGridViewTextBoxColumn";
+            // 
             // AssesmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,6 +122,7 @@
             this.Name = "AssesmentForm";
             this.Text = "Assesments";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assesmentBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assesmentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -119,8 +134,10 @@
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.BindingSource assesmentBindingSource;
+        private System.Windows.Forms.BindingSource assesmentBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn predictedMarkDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actualMarkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wheightDataGridViewTextBoxColumn;
     }
 }

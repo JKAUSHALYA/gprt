@@ -51,13 +51,13 @@ namespace GPRTApp
             this.Close();
         }
 
-        private void AddItemsToDataGrid(DataGridView dataGridView, string moduleName,
-            string predictedMark,
-            string actualMark)
+        private void AddItemsToDataGrid(DataGridView dataGridView, string title,
+            string code,
+            string creditValue)
         {
             var dataSet = (DataSet)dataGridView.DataSource;
             var table = dataSet.Tables[0];
-            table.Rows.Add(moduleName, predictedMark, actualMark);
+            table.Rows.Add(title, code, creditValue);
         }
     }
 }

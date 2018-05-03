@@ -170,7 +170,20 @@ namespace GPRTApp
                 assesmentResults.Add(assesmentResult);
             }
 
-            moduleResult.Mark = assesmentResults.Sum(ar => Convert.ToDecimal(ar.Assesment.ActualMark)) 
+            moduleResult.Mark = assesmentResults
+                .Sum(ar => {
+                    var mark = (decimal)0;
+                    var assesment = ar.Assesment;
+                    if (assesment.ActualMark != null && assesment.ActualMark != "")
+                    {
+                        mark = Convert.ToDecimal(assesment.ActualMark);
+                    }
+                    else if (assesment.PredictedMark != null && assesment.PredictedMark != "")
+                    {
+                        mark = Convert.ToDecimal(assesment.PredictedMark);
+                    }
+                    return mark * (Convert.ToDecimal(assesment.Wheight) / 100);
+                }) 
                 / assesmentResults.Count;
 
             if (assesmentResults.Any(ar => ar.ResultStatus == GPRTCommon.Result.Status.FAIL) 

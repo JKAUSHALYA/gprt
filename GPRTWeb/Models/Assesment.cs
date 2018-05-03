@@ -14,6 +14,7 @@ namespace GPRTWeb.Models
         public string Name { get; set; }
         public string PredictedMark { get; set; }
         public string ActualMark { get; set; }
+        public string Wheight { get; set; }
 
         public Module Module { get; set; }
     }

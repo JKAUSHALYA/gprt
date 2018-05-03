@@ -98,6 +98,7 @@ namespace GPRTWeb.Controllers
                             {
                                 dbAssesment.PredictedMark = assesment.PredictedMark;
                                 dbAssesment.ActualMark = assesment.ActualMark;
+                                dbAssesment.Wheight = assesment.Wheight;
                             }
                             else
                             {

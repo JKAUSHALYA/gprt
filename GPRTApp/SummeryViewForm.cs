@@ -188,8 +188,17 @@ namespace GPRTApp
         private AssesmentResult CalculateAssementResult(Assesment assesment)
         {
             var assesmentResult = new AssesmentResult();
+            var mark = 0;
 
-            if (Convert.ToInt32(assesment.ActualMark) > 30)
+            if (assesment.ActualMark != null && assesment.ActualMark != "")
+            {
+                mark = Convert.ToInt32(assesment.ActualMark);
+            } else if (assesment.PredictedMark != null && assesment.PredictedMark != "")
+            {
+                mark = Convert.ToInt32(assesment.PredictedMark);
+            }
+
+            if (mark > 30)
             {
                 assesmentResult.ResultStatus = GPRTCommon.Result.Status.PASS;
             } else
